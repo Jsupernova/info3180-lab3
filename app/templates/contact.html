@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form method="POST" action="{{ url_for('contact') }}">
+        {{ form.csrf_token }} 
+        <div class='lbtxt'>
+            <div>
+                {{ form.name.label }}
+                <label class="req"> (Required) </label>
+            </div>
+            <label>Please enter your first name</label>
+               {{form.name (class="txtbox")}}
+        </div>
+
+        <div class='lbtxt'>
+            <div>
+                {{ form.email.label }} 
+                <label class="req"> (Required) </label>
+            </div>
+            <label>Please enter your email address</label> 
+            {{form.email(class="txtbox",placeholder="brownjohn@example.com")}}
+        </div>
+
+
+        <div class='lbtxt'>
+            <div>
+                {{ form.subject.label }}
+                <label class="req"> (Required) </label>
+            </div>
+             <label>Please enter the subject of your message</label>  
+             {{form.subject (class="txtbox")}}
+        </div>
+
+
+        <div class='lbtxt'>
+            <div>
+                {{ form.message.label }}
+                <label class="req"> (Required) </label>
+            </div>
+           <label>Please enter the message you want to send</label>   
+           {{form.message }}
+        </div>
+
+
+        <div>
+            <button type="submit"> Send </button>
+        </div>
+        
+       </form>
+    {% endblock %}
